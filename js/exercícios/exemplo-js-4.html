@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noda do aluno</title>
+    <style>
+        body{ font: 12pt Arial; }
+        button{ font-size: 12pt; padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1>calcular média dos alunos</h1>
+    <button onclick="calcular()">clique aqui para calcular a média</button>
+    <section id="res">
+        <p>aqui vai aparecer o resultado... </p>
+    </section>
+
+    <script>
+        function calcular() {
+            let nomeAluno1 = window.prompt('Digite o nome do aluno 1');
+            let nomeAluno2 = window.prompt('Digite o nome do aluno 2');
+
+            let nota1 = window.prompt(`Digite a primeri nota de ${nomeAluno1}`);
+            let nota2 = window.prompt(`Digite a primeri nota de ${nomeAluno1}`);
+            let nota3 = window.prompt(`Digite a primeri nota de ${nomeAluno2}`);
+            let nota4 = window.prompt(`Digite a primeri nota de ${nomeAluno2}`);
+
+            nota1 = nota1.replace(',', ',');
+            nota2 = nota2.replace(',', ',');
+            nota3 = nota3.replace(',', ',');
+            nota4 = nota4.replace(',', ',');
+
+            if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4) ||
+            nota1 === "" || nota2 === "" || nota3 === "" || nota4 === "") {
+            alert("Por favor, insira nota válidas!");
+            return;
+            }
+
+            nota1 = parseFloat(nota1);
+            nota2 = parseFloat(nota2);
+            nota3 = parseFloat(nota3);
+            nota4 = parseFloat(nota4);
+
+            let mediaAluno1 = ((nota1 + nota2) / 2).toFixed(2);
+            let mediaAluno2 = ((nota3 + nota4) / 2).toFixed(2);
+
+            let res = document.querySelector('sectin#res');
+            res.innerHTML = `
+                <p>Aluno 1 : ${nomeAluno1} - Nota 1: ${nota1}, Nota 1: ${nota2}. Média: ${mediaAluno1}</p>
+                <p>Aluno 2 : ${nomeAluno2} - Nota 1: ${nota3}, Nota 1: ${nota4}, Média: ${mediaAluno2}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

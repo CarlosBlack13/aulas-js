@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Número Par ou Ímpar</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #0047ab;
+            font-size: 24px;
+        }
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            border: 2px solid #0047ab;
+            border-radius: 5px;
+            outline: none;
+        }
+        input[type="number"]:focus {
+            border-color: #ff6347;
+        }
+        button {
+            background-color: #0047ab;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #003a8c;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .par {
+            background-color: #90ee90;
+            color: #2e8b57;
+        }
+        .impar {
+            background-color: #ffcccb;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verifique se o número é Par ou Ímpar</h1>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="verificarParOuImpar()">Verificar</button>
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function verificarParOuImpar() {
+            // Obtém o valor do número inserido
+            const numero = document.getElementById('numero').value;
+            const resultadoDiv = document.getElementById('resultado');
+            
+            // Verifica se o número é par ou ímpar
+            if (numero === "") {
+                resultadoDiv.textContent = "Por favor, insira um número.";
+                resultadoDiv.className = "result";
+            } else {
+                const numeroInt = parseInt(numero);
+                if (isNaN(numeroInt)) {
+                    resultadoDiv.textContent = "Por favor, insira um número válido.";
+                    resultadoDiv.className = "result";
+                } else if (numeroInt % 2 === 0) {
+                    resultadoDiv.textContent = "O número " + numeroInt + " é Par!";
+                    resultadoDiv.className = "result par";
+                } else {
+                    resultadoDiv.textContent = "O número " + numeroInt + " é Ímpar!";
+                    resultadoDiv.className = "result impar";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botões com Mensagem</title>
+  <style>
+    /* Estilo para os botões */
+    .botao {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Quatro botões, cada um com a classe "botao" -->
+  <button class="botao1">Clique no botão 1</button>
+  <button class="botao2">Clique no botão 2</button>
+  <button class="botao3">Clique no botão 3</button>
+  <button class="botao4">Clique no botão 4</button>
+
+  <!-- Mensagem que aparecerá após clicar em qualquer botão -->
+  <p id="mensagem1" style="display: none;">Você apertou o botão 1</p>
+  <p id="mensagem2" style="display: none;">Você apertou o botão 2</p>
+  <p id="mensagem3" style="display: none;">Você apertou o botão 3</p>
+  <p id="mensagem4" style="display: none;">Você apertou o botão 4</p>
+
+  <script>
+    // Seleciona todos os botões pela classe
+    const botoes1 = document.querySelectorAll('.botao1');
+    const botoes2 = document.querySelectorAll('.botao2');
+    const botoes3 = document.querySelectorAll('.botao3');
+    const botoes4 = document.querySelectorAll('.botao4');
+
+    const mensagem1 = document.getElementById('mensagem1');
+    const mensagem2 = document.getElementById('mensagem2');
+    const mensagem3 = document.getElementById('mensagem3');
+    const mensagem4 = document.getElementById('mensagem4');
+
+    // Adiciona um evento de clique a cada botão
+
+botoes1.addEventListener('click', function(){
+    mensagem1.style.display = 'block';
+})
+ 
+  </script>
+  
+</body>
+</html>
+

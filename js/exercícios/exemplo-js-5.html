@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Operações Matemáticas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f3f3;
+    }
+    .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Operações Matemáticas</h2>
+    <input type="number" id="numero" placeholder="Digite um número" step="any">
+    <button onclick="calcular()">Calcular</button>
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular() {
+      const numero = parseFloat(document.getElementById('numero').value);
+
+      if (isNaN(numero)) {
+        document.getElementById('resultado').innerHTML = "Por favor, insira um número válido.";
+        return;
+      }
+
+      const valorAbsoluto = Math.abs(numero);
+      const parteInteira = Math.trunc(numero);
+      const inteiroProximo = Math.round(numero);
+      const raizQuadrada = Math.sqrt(numero).toFixed(2);
+      const raizCubica = Math.cbrt(numero).toFixed(2);
+      const elevadoAoQuadrado = Math.pow(numero, 2).toFixed(2);
+      const elevadoAoCubo = Math.pow(numero, 3).toFixed(2);
+
+      const resultado = `
+        Valor absoluto: ${valorAbsoluto} <br>
+        Parte inteira: ${parteInteira} <br>
+        Inteiro mais próximo: ${inteiroProximo} <br>
+        Raiz quadrada: ${raizQuadrada} <br>
+        Raiz cúbica: ${raizCubica} <br>
+        Elevado ao quadrado: ${elevadoAoQuadrado} <br>
+        Elevado ao cubo: ${elevadoAoCubo}
+      `;
+
+      document.getElementById('resultado').innerHTML = resultado;
+    }
+  </script>
+</body>
+</html>
